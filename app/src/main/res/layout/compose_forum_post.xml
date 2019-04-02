@@ -23,7 +23,7 @@
         tools:text="I am posting about this climb I did because I'm doing good sock it to me." />
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,7 +34,7 @@
         tools:text="Back" />
 
     <Button
-        android:id="@+id/postButton"
+        android:id="@+id/btnPost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
