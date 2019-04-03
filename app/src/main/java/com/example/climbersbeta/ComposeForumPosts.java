@@ -9,6 +9,7 @@ public class ComposeForumPosts extends AppCompatActivity {
 
     // View declarations
     EditText etForumPost;
+    EditText etSubject;
     Button btnBack;
     Button btnPost;
 
@@ -20,6 +21,7 @@ public class ComposeForumPosts extends AppCompatActivity {
 
         // Find id for all views
         etForumPost = findViewById(R.id.etForumPost);
+        etSubject = findViewById(R.id.etSubject);
         btnBack = findViewById(R.id.btnBack);
         btnPost = findViewById(R.id.btnPost);
     }
