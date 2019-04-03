@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity
+public class RouteView extends AppCompatActivity
 {
     //View declarations
     TextView tvRouteTitle;
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.route_view);
 
         //find id for all views
         tvRouteTitle = findViewById(R.id.tvRouteTitle);
