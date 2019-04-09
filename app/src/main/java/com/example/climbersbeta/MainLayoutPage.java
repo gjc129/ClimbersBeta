@@ -1,7 +1,10 @@
 package com.example.climbersbeta;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -14,6 +17,8 @@ public class MainLayoutPage extends AppCompatActivity
     Button btnCreateAccount;
     Button btnForum;
     Button btnBulletinBoard;
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -28,6 +33,49 @@ public class MainLayoutPage extends AppCompatActivity
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
 
+        // will send you to browse routes page
+        btnBrowse.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
 
+                Intent sendToRouteViewIntent = new Intent(context, RouteViewPage.class);
+                context.startActivity(sendToRouteViewIntent);
+            }
+        });
+
+        // will send you to the map page
+        ivMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent sendToMapsActivityIntent = new Intent(context, MapsActivityPage.class);
+                context.startActivity(sendToMapsActivityIntent);
+            }
+        });
+
+        // will send you to the forum page
+        btnForum.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent sendToMainForumIntent = new Intent(context, MainForumPage.class);
+                context.startActivity(sendToMainForumIntent);
+            }
+        });
+
+
+        // will send you to the bulletin page
+        btnBulletinBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent sendToMainBulletinIntent = new Intent(context, MainBulletinPage.class);
+                context.startActivity(sendToMainBulletinIntent);
+            }
+        });
     }
+
+
 }
