@@ -6,7 +6,6 @@ This application helps climbers have a better experience when outdoor climbing b
 
 This application requires internet access, and Android 4.1. 
 
-Added Dependencies: 
 
 
 
