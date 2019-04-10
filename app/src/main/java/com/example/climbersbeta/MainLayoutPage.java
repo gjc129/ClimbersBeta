@@ -32,8 +32,13 @@ public class MainLayoutPage extends AppCompatActivity
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
+//<<<<<<< Marco
+//<<<<<<< HEAD
+//=======
+//=======
         ivMap.setImageResource(R.drawable.yosemite);
 
+//>>>>>>> master
 
         // will send you to browse routes page
         btnBrowse.setOnClickListener(new View.OnClickListener()
@@ -76,6 +81,7 @@ public class MainLayoutPage extends AppCompatActivity
                 startActivity(sendToMainBulletinIntent);
             }
         });
+//>>>>>>> d7cc8e2d492f69e95593d721d2ddfeb03ad0533d
     }
 
 
