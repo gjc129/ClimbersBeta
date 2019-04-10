@@ -41,7 +41,7 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, RouteViewPage.class);
+                Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, BrowseRoutesPage.class);
                 startActivity(sendToRouteViewIntent);
             }
         });
@@ -57,14 +57,14 @@ public class MainLayoutPage extends AppCompatActivity
         });
 
         // will send you to the forum page
-       btnForum.setOnClickListener(new View.OnClickListener()
-       {
-           @Override
-           public void onClick(View v) {
-               Intent sendToForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
-               startActivity(sendToForumIntent);
-           }
-       });
+        btnForum.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent sendToForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
+                startActivity(sendToForumIntent);
+            }
+        });
 
 
         // will send you to the bulletin page
