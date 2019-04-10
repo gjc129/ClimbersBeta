@@ -6,7 +6,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-public class RouteView extends AppCompatActivity
+public class RouteViewPage extends AppCompatActivity
 {
     //View declarations
     TextView tvRouteTitle;
