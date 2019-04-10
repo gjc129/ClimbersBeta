@@ -27,7 +27,5 @@ public class MainLayoutPage extends AppCompatActivity
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
-
-
     }
 }

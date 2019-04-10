@@ -16,7 +16,7 @@ public class MainForumPage extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.forum_main_page);
 
         // Find view by id's
         btnComposePost = findViewById(R.id.btnComposePost);
