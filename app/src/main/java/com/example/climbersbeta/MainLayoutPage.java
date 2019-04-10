@@ -32,6 +32,8 @@ public class MainLayoutPage extends AppCompatActivity
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
+        ivMap.setImageResource(R.drawable.yosemite);
+
 
         // will send you to browse routes page
         btnBrowse.setOnClickListener(new View.OnClickListener()
@@ -39,7 +41,7 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, RouteViewPage.class);
+                Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, BrowseRoutesPage.class);
                 startActivity(sendToRouteViewIntent);
             }
         });
@@ -58,10 +60,9 @@ public class MainLayoutPage extends AppCompatActivity
         btnForum.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v)
-            {
-                Intent sendToMainForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
-                startActivity(sendToMainForumIntent);
+            public void onClick(View v) {
+                Intent sendToForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
+                startActivity(sendToForumIntent);
             }
         });
 
