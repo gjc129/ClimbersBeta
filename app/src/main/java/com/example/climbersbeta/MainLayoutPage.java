@@ -32,6 +32,8 @@ public class MainLayoutPage extends AppCompatActivity
         btnCreateAccount = findViewById(R.id.btnCreateAccount);
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
+        ivMap.setImageResource(R.drawable.yosemite);
+
 
         // will send you to browse routes page
         btnBrowse.setOnClickListener(new View.OnClickListener()
@@ -55,15 +57,14 @@ public class MainLayoutPage extends AppCompatActivity
         });
 
         // will send you to the forum page
-        btnForum.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent sendToMainForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
-                startActivity(sendToMainForumIntent);
-            }
-        });
+       btnForum.setOnClickListener(new View.OnClickListener()
+       {
+           @Override
+           public void onClick(View v) {
+               Intent sendToForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
+               startActivity(sendToForumIntent);
+           }
+       });
 
 
         // will send you to the bulletin page
