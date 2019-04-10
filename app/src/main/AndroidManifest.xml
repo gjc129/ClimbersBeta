@@ -40,6 +40,15 @@
             </intent-filter>
         </activity>
         <activity android:name=".RouteViewPage" />
+        <activity
+            android:name=".BulletinPostPage"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".MainForumPage"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".ComposeForumPosts"
+            android:label="@string/app_name" />
     </application>
 
 </manifest>

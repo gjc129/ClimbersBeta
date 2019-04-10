@@ -15,7 +15,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Compose a post."
+        android:hint="@string/etForumPost"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -46,7 +46,7 @@
         tools:text="Post" />
 
     <EditText
-        android:id="@+id/etSubject"
+        android:id="@+id/etSubjectLine"
         android:layout_width="393dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
@@ -55,7 +55,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:ems="10"
-        android:hint="Enter a subject"
+        android:hint="@string/etSubjectLine"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,9 +69,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="@string/tvSubject"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/etSubject"
+        app:layout_constraintBottom_toTopOf="@+id/etSubjectLine"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Subject:" />
 
@@ -82,7 +82,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="@string/tvPost"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/etForumPost"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +95,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/tvTitle"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
