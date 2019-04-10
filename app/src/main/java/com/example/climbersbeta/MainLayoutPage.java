@@ -39,8 +39,8 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                Intent sendToRouteViewIntent = new Intent(context, RouteViewPage.class);
-                context.startActivity(sendToRouteViewIntent);
+                Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, RouteViewPage.class);
+                startActivity(sendToRouteViewIntent);
             }
         });
 
@@ -49,8 +49,8 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent sendToMapsActivityIntent = new Intent(context, MapsActivityPage.class);
-                context.startActivity(sendToMapsActivityIntent);
+                Intent sendToMapsActivityIntent = new Intent(MainLayoutPage.this, MapsActivityPage.class);
+                startActivity(sendToMapsActivityIntent);
             }
         });
 
@@ -60,8 +60,8 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent sendToMainForumIntent = new Intent(context, MainForumPage.class);
-                context.startActivity(sendToMainForumIntent);
+                Intent sendToMainForumIntent = new Intent(MainLayoutPage.this, MainForumPage.class);
+                startActivity(sendToMainForumIntent);
             }
         });
 
@@ -71,8 +71,8 @@ public class MainLayoutPage extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent sendToMainBulletinIntent = new Intent(context, MainBulletinPage.class);
-                context.startActivity(sendToMainBulletinIntent);
+                Intent sendToMainBulletinIntent = new Intent(MainLayoutPage.this, MainBulletinPage.class);
+                startActivity(sendToMainBulletinIntent);
             }
         });
     }
