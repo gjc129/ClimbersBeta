@@ -30,9 +30,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="64dp"
+        android:text="Back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etForumPost"
-        tools:text="Back" />
+        app:layout_constraintTop_toBottomOf="@+id/etForumPost" />
 
     <Button
         android:id="@+id/btnPost"
@@ -41,9 +41,9 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:text="Post"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etForumPost"
-        tools:text="Post" />
+        app:layout_constraintTop_toBottomOf="@+id/etForumPost" />
 
     <EditText
         android:id="@+id/etSubject"
@@ -69,11 +69,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="Subject:"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/etSubject"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Subject:" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvPost"
@@ -82,11 +81,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="Post:"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/etForumPost"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Post:" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -95,10 +93,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="Forum Post Page"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Forum Post Page" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
