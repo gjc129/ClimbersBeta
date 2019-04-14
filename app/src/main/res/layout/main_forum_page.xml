@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnComposePost"
+        android:id="@+id/btnComposeForumPost"
         android:layout_width="115dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -29,7 +29,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnComposePost"
+        app:layout_constraintTop_toBottomOf="@+id/btnComposeForumPost"
         tools:listitem="forumPosts" />
 
     <TextView
