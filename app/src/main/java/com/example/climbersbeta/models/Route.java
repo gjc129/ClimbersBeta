@@ -33,4 +33,24 @@ public class Route
         }
         return routes;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public String getStars() {
+        return stars;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getLocation() {
+        return location;
+    }
 }
