@@ -6,6 +6,9 @@ This application helps climbers have a better experience when outdoor climbing b
 
 This application requires internet access, and Android 4.1. 
 
+Running this application requires the following dependencies: 
+(to be added in the build.gradle(module:app))
+  implementation 'com.loopj.android:android-async-http:1.4.9'
 
 
 
