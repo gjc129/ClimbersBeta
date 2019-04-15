@@ -32,4 +32,5 @@ public class MainForumPage extends AppCompatActivity
             }
         });
     }
+
 }

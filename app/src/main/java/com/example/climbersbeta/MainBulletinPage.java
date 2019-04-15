@@ -9,6 +9,7 @@ import android.widget.Button;
 
 public class MainBulletinPage extends AppCompatActivity {
 
+
     Button btnComposePost;
     RecyclerView rvBulletinPosts;
 
@@ -27,6 +28,6 @@ public class MainBulletinPage extends AppCompatActivity {
                 startActivity(sendToBulletinPostPage);
             }
         });
-
     }
 }
+
