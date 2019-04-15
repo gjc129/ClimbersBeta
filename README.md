@@ -8,7 +8,8 @@ This application requires internet access, and Android 4.1.
 
 Running this application requires the following dependencies: 
 (to be added in the build.gradle(module:app))
-  implementation 'com.loopj.android:android-async-http:1.4.9'
+ 
+ implementation 'com.loopj.android:android-async-http:1.4.9'
 
 
 
