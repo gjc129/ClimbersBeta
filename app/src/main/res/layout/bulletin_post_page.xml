@@ -26,13 +26,12 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="@string/etSubjectLine"
+        android:hint="Enter a subject"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSubject"
-        tools:text="@string/etSubjectLine" />
+        app:layout_constraintTop_toBottomOf="@+id/tvSubject" />
 
     <TextView
         android:id="@+id/tvBody"
@@ -55,9 +54,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:ems="10"
-        android:hint="Enter a @string/etBody"
+        android:hint="Enter a body for the post."
         android:inputType="textMultiLine"
-        android:text="@string/etBody"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

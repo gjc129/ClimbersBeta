@@ -21,16 +21,14 @@ public class MainForumPage extends AppCompatActivity
         setContentView(R.layout.main_forum_page);
 
         // Find view by id's
-        btnComposePost = findViewById(R.id.btnComposePost);
+        btnComposePost = findViewById(R.id.btnComposeForumPost);
         rvPosts = findViewById(R.id.rvPosts);
 
-        // clicking on compose post will take you to compose forum post page
-        btnComposePost.setOnClickListener(new View.OnClickListener()
-        {
+        btnComposePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent sendToForum = new Intent(MainForumPage.this, ComposeForumPosts.class);
-                startActivity(sendToForum);
+                Intent sendToForumPostPage = new Intent(MainForumPage.this, ComposeForumPosts.class);
+                startActivity(sendToForumPostPage);
             }
         });
     }
