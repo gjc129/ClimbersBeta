@@ -14,12 +14,14 @@ public class Route
     String rating;
     String stars;
     String id;
+    String location;
 
     public Route(JSONObject jsonObject) throws JSONException {
         name = jsonObject.getString("name");
         rating = jsonObject.getString("rating");
         stars = jsonObject.getString("stars");
         id = jsonObject.getString("id");
+        location = jsonObject.getString("location");
 
     }
 
