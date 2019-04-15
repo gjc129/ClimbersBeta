@@ -11,6 +11,4 @@ Running this application requires the following dependencies:
  
  implementation 'com.loopj.android:android-async-http:1.4.9'
 
-
-
 <img src="https://github.com/gjc129/ClimbersBeta/blob/master/Route%20Example.png" width=250><br>
