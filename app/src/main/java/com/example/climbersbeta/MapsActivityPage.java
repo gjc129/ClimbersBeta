@@ -74,7 +74,26 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        mLocationPermissionsGranted = false;
+
+        switch(requestCode)
+        {
+            case 1234: {
+                if(grantResults.length > 0)
+                {
+                    for(int i = 0; i < grantResults.length; i++)
+                    {
+                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED)
+                        {
+                            mLocationPermissionsGranted = false;
+                            return;
+                        }
+                    }
+                    mLocationPermissionsGranted = true;
+                    // initialize our map
+                }
+            }
+        }
     }
 
     @Override
