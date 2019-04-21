@@ -8,7 +8,10 @@ import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,6 +23,7 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
 
     private GoogleMap mMap;
 
+    private static final String TAG = "MapsActivityPage";
     // made the manifest permissions into global variables to make it easier on myself
     private static final String FINE_LOCATION = Manifest.permission.ACCESS_FINE_LOCATION;
     private static final String COURSE_LOCATION = Manifest.permission.ACCESS_COARSE_LOCATION;
@@ -34,9 +38,17 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        getLocationPermission();
     }
 
+   /* private void initMap()
+    {
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
 
+        mapFragment.getMapAsync(MapsActivityPage.this);
+    }
+    */
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -50,6 +62,7 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
     // send permission requests
     private void getLocationPermission()
     {
+        Log.d(TAG, "getLocationPermission: getting location permissions");
         String[] permissions = {Manifest.permission.ACCESS_FINE_LOCATION,
         Manifest.permission.ACCESS_COARSE_LOCATION};
 
@@ -74,21 +87,21 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        Log.d(TAG, "onRequestPermissionResult: called.");
         mLocationPermissionsGranted = false;
 
         switch(requestCode)
         {
             case 1234: {
-                if(grantResults.length > 0)
-                {
-                    for(int i = 0; i < grantResults.length; i++)
-                    {
-                        if(grantResults[i] != PackageManager.PERMISSION_GRANTED)
-                        {
+                if(grantResults.length > 0) {
+                    for (int i = 0; i < grantResults.length; i++) {
+                        if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
                             mLocationPermissionsGranted = false;
+                            Log.d(TAG, "onRequestPermissionResult: permission failed");
                             return;
                         }
                     }
+                    Log.d(TAG, "onRequestPermissionResult: permission granted");
                     mLocationPermissionsGranted = true;
                     // initialize our map
                 }
@@ -99,8 +112,9 @@ public class MapsActivityPage extends FragmentActivity implements OnMapReadyCall
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        Toast.makeText(this, "Map is ready", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "onMapReady: map is ready");
 
-        // Add a marker in Sydney and move the camera
         // Changed the coordinates to the science building in hsu
         LatLng arcata = new LatLng(40.874954, -124.077936);
         mMap.addMarker(new MarkerOptions().position(arcata).title("Marker in Arcata"));
