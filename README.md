@@ -10,5 +10,13 @@ Running this application requires the following dependencies:
 (to be added in the build.gradle(module:app))
  
  implementation 'com.loopj.android:android-async-http:1.4.9'
+ implementation 'com.google.android.gms:play-services-maps:$googlePlayVersion'
+ implementation 'com.google.android.gms:play-services-location:$googlePlayVersion'
+ 
+ Will also need to go to sdk manager and enable the following:
+ -google play services
+ -cmake
+ -lldb
+ -ndk
 
 <img src="https://github.com/gjc129/ClimbersBeta/blob/master/Route%20Example.png" width=250><br>
