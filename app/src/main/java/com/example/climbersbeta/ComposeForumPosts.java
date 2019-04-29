@@ -1,7 +1,9 @@
 package com.example.climbersbeta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -24,5 +26,17 @@ public class ComposeForumPosts extends AppCompatActivity {
         etSubject = findViewById(R.id.etSubjectLine);
         btnBack = findViewById(R.id.btnBack);
         btnPost = findViewById(R.id.btnPost);
+
+        btnPost.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                Intent postForum = new Intent(ComposeForumPosts.this, MainForumPage.class);
+                postForum.putExtra("message", message);
+                
+                startActivity(postForum);
+            }
+        });
     }
+
 }
