@@ -4,11 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SimpleAdapter;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 public class MainForumPage extends AppCompatActivity
@@ -17,17 +20,8 @@ public class MainForumPage extends AppCompatActivity
     Button btnComposePost;
     RecyclerView rvPosts;
 
-    private List<SimpleViewModel> generateList() {
-        List<SimpleViewModel> simpleViewModelList = new ArrayList<>();
-
-        for(int i = 0; i < 100; i++) {
-            simpleViewModelList.add(new SimpleViewModel(String.format(Locale.US, "This is item %d", i)));
-        }
-        return simpleViewModelList;
-    }
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_forum_page);
 
@@ -47,29 +41,38 @@ public class MainForumPage extends AppCompatActivity
         //String message = bundle.getString("message");
 
         rvPosts = findViewById(R.id.rvPosts);
+
+        SimpleAdapter adapter = new SimpleAdapter(generateSimpleList());
+        rvPosts.setLayoutManager(new LinearLayoutManager(this));
+        rvPosts.setHasFixedSize(true);
+
+        rvPosts.setAdapter(adapter);
     }
 
-    // creating a class for our recycler view for forum posts
-    public class Viewing
-    {
-        private String forumPost;
+    private List<SimpleViewModel> generateSimpleList(){
+         List<SimpleViewModel> simpleViewModelList = new ArrayList<>();
 
-        // making setters and getters
-        public Viewing(@NonNull final String forumPost)
-        {
-            setForumPosts(forumPost);
+         for(int i = 0; i < 100; i++) {
+            simpleViewModelList.add(new SimpleViewModel(String.format(Locale.US, "This is item %d", i)));
+         }
+            return simpleViewModelList;
+    }
+}
+
+    // creating a class for our recycler view for forum posts
+    private class SimpleViewModel{
+        private String simplePost;
+
+        public SimpleViewModel(@NonNull final String simplePost){
+            setSimplePost(simplePost);
         }
 
         @NonNull
-        public String getForumPosts()
-        {
-            return forumPost;
+        public String getSimplePost(){
+            return simplePost;
         }
 
-        public void setForumPosts(@NonNull final String forumPosts)
-        {
-            this.forumPost = forumPosts;
+        public void setSimplePost(@NonNull final String simplePost){
+            this.simplePost = simplePost;
         }
     }
-
-}

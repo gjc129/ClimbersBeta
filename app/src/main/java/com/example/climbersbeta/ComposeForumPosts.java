@@ -32,8 +32,6 @@ public class ComposeForumPosts extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent postForum = new Intent(ComposeForumPosts.this, MainForumPage.class);
-                postForum.putExtra("message", message);
-                
                 startActivity(postForum);
             }
         });
