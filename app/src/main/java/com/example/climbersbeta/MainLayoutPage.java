@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.climbersbeta.models.Route;
 import com.loopj.android.http.AsyncHttpClient;
@@ -31,9 +32,14 @@ public class MainLayoutPage extends AppCompatActivity
     Button btnForum;
     Button btnBulletinBoard;
     List<Route> routes;
+    List<Route> sportRoutes;
+    List<Route> boulderRoutes;
+    TextView tvLogo;
     //>>>>>>> d7cc8e2d492f69e95593d721d2ddfeb03ad0533d
 
-    static final String MP_API_URL = "https://www.mountainproject.com/data/get-routes?routeIds=105748391,105750454,105749956&key=200449770-856f491329dc082014b13d783de0e9c1";
+    //this link is relatively the area of the
+    static final String MP_API_URL_SPORT = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=5.6&maxDiff=5.14d&key=200449770-856f491329dc082014b13d783de0e9c1";
+    static final String MP_API_URL_BOULDER = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=V0&maxDiff=V14&key=200449770-856f491329dc082014b13d783de0e9c1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -48,6 +54,9 @@ public class MainLayoutPage extends AppCompatActivity
         btnForum = findViewById(R.id.btnForum);
         btnBulletinBoard = findViewById(R.id.btnBulletinBoard);
         ivMap.setImageResource(R.drawable.yosemite);
+        tvLogo =findViewById(R.id.tvLogo);
+
+
 
         // will send you to browse routes page
         btnBrowse.setOnClickListener(new View.OnClickListener()
@@ -98,14 +107,16 @@ public class MainLayoutPage extends AppCompatActivity
             }
         }); */
 
+        //client get function for the sport and traditional climbing routes in the Redwood Coast area
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(MP_API_URL, new JsonHttpResponseHandler(){
+        client.get(MP_API_URL_SPORT, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     JSONArray routeJsonArray = response.getJSONArray("routes");
-                    routes = Route.fromJsonArray(routeJsonArray);
-                    Log.d("smile", routes.toString());
+                    sportRoutes = Route.fromJsonArray(routeJsonArray);
+                    Log.d("smile", sportRoutes.toString());
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -116,6 +127,28 @@ public class MainLayoutPage extends AppCompatActivity
                 super.onFailure(statusCode, headers, responseString, throwable);
             }
         });
+
+/*
+        //client get function for the boulder climbing routes in the Redwood Coast area
+       client.get(MP_API_URL_BOULDER, new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                try {
+                    JSONArray routeJsonArray = response.getJSONArray("routes");
+                    boulderRoutes = Route.fromJsonArray(routeJsonArray);
+                    Log.d("smile", boulderRoutes.toString());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                super.onFailure(statusCode, headers, responseString, throwable);
+            }
+        });
+*/
 
     }
 

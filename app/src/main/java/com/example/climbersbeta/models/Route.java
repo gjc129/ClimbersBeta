@@ -15,13 +15,21 @@ public class Route
     String stars;
     String id;
     String location;
+    String url;
+    String image;
+
 
     public Route(JSONObject jsonObject) throws JSONException {
+
+        //json object mapping to string variables for passing to browse route page.
         name = jsonObject.getString("name");
         rating = jsonObject.getString("rating");
         stars = jsonObject.getString("stars");
         id = jsonObject.getString("id");
         location = jsonObject.getString("location");
+        url = jsonObject.getString("url");
+        image = jsonObject.getString("imgSqSmall");
+
 
     }
 
