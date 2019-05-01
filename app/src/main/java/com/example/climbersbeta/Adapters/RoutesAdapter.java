@@ -1,6 +1,7 @@
 package com.example.climbersbeta.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -10,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.climbersbeta.R;
+import com.example.climbersbeta.RouteViewPage;
 import com.example.climbersbeta.models.Route;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -46,17 +50,33 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
         return routes.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tvRouteName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
            tvRouteName = itemView.findViewById(R.id.tvRouteName);
+           itemView.setOnClickListener(this);
         }
 
         public void bind(Route route) {
             tvRouteName.setText(route.getName());
+        }
+
+        @Override
+        public void onClick(View v) {
+            //gets the items position
+            int position = getAdapterPosition();
+
+            if(position != RecyclerView.NO_POSITION)
+            {
+                Route route = routes.get(position);
+                Intent sendToRouteViewIntent = new Intent(context, RouteViewPage.class);
+                sendToRouteViewIntent.putExtra(Route.class.getName(), Parcels.wrap(route));
+                context.startActivity(sendToRouteViewIntent);
+
+            }
         }
     }
 }

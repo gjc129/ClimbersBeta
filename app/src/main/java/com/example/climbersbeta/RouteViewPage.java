@@ -6,6 +6,10 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.example.climbersbeta.models.Route;
+
+import org.parceler.Parcels;
+
 public class RouteViewPage extends AppCompatActivity
 {
     //View declarations
@@ -21,12 +25,16 @@ public class RouteViewPage extends AppCompatActivity
     TextView tvTypeBody;
     ImageView ivRouteImage;
     RatingBar rbRating;
+    Route route;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.route_view);
+
+        route = Parcels.unwrap(getIntent().getParcelableExtra(Route.class.getName()));
+
 
         //find id for all views
         tvRouteTitle = findViewById(R.id.tvRouteTitle);
