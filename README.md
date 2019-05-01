@@ -11,7 +11,9 @@ Running this application requires the following dependencies:
  
  implementation 'com.loopj.android:android-async-http:1.4.9'  
  implementation 'com.google.android.gms:play-services-maps:$googlePlayVersion'  
- implementation 'com.google.android.gms:play-services-location:$googlePlayVersion'  
+ implementation 'com.google.android.gms:play-services-location:$googlePlayVersion' 
+ implementation 'com.github.bumptech.glide:glide:4.8.0'
+ annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
  
  Will also need to go to sdk manager and enable the following:  
  -google play services  
