@@ -3,10 +3,12 @@ package com.example.climbersbeta.models;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Parcel
 public class Route
 {
 
@@ -32,6 +34,7 @@ public class Route
 
 
     }
+    public Route(){}
 
     public static List<Route> fromJsonArray(JSONArray routeJsonArray) throws JSONException{
         List<Route> routes = new ArrayList<>();
@@ -60,5 +63,13 @@ public class Route
 
     public String getLocation() {
         return location;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public String getImage() {
+        return image;
     }
 }

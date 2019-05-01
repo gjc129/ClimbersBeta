@@ -3,6 +3,7 @@ package com.example.climbersbeta.Adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        Log.d("smile", "onCreateViewHolder");
         //inflates the recycler view with the route names
         View view = LayoutInflater.from(context).inflate(R.layout.item_route, viewGroup, false);
         return new ViewHolder(view);
@@ -50,7 +52,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.findViewById(R.id.tvRouteName);
+           tvRouteName = itemView.findViewById(R.id.tvRouteName);
         }
 
         public void bind(Route route) {
