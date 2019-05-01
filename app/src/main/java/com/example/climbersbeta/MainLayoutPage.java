@@ -1,5 +1,6 @@
 package com.example.climbersbeta;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import android.widget.Toast;
+
 import com.example.climbersbeta.models.Route;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -41,6 +46,10 @@ public class MainLayoutPage extends AppCompatActivity
     static final String MP_API_URL_SPORT = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=5.6&maxDiff=5.14d&key=200449770-856f491329dc082014b13d783de0e9c1";
     static final String MP_API_URL_BOULDER = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=V0&maxDiff=V14&key=200449770-856f491329dc082014b13d783de0e9c1";
 
+    // setting up if google maps is up to date
+    private static final String TAG = "MainLayoutPage";
+    private static final int ERROR_DIALOG_REQUEST = 9001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -58,6 +67,23 @@ public class MainLayoutPage extends AppCompatActivity
 
 
 
+
+        // checks to see if you are up to date on google store first
+        // if you are then the button will work
+        if(isServicesOK())
+        {
+            ivMap.setImageResource(R.drawable.yosemite);
+            // will send you to the map page
+            ivMap.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent sendToMapsActivityIntent = new Intent(MainLayoutPage.this, MapsActivityPage.class);
+                    startActivity(sendToMapsActivityIntent);
+                }
+            });
+        }
+
         // will send you to browse routes page
         btnBrowse.setOnClickListener(new View.OnClickListener()
         {
@@ -65,16 +91,6 @@ public class MainLayoutPage extends AppCompatActivity
             public void onClick(View v) {
                 Intent sendToRouteViewIntent = new Intent(MainLayoutPage.this, BrowseRoutesPage.class);
                 startActivity(sendToRouteViewIntent);
-            }
-        });
-
-        // will send you to the map page
-        ivMap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent sendToMapsActivityIntent = new Intent(MainLayoutPage.this, MapsActivityPage.class);
-                startActivity(sendToMapsActivityIntent);
             }
         });
 
@@ -128,6 +144,7 @@ public class MainLayoutPage extends AppCompatActivity
             }
         });
 
+
 /*
         //client get function for the boulder climbing routes in the Redwood Coast area
        client.get(MP_API_URL_BOULDER, new JsonHttpResponseHandler(){
@@ -150,7 +167,32 @@ public class MainLayoutPage extends AppCompatActivity
         });
 */
 
+
     }
 
+    // checks to see if you are up to date
+    public boolean isServicesOK(){
+        Log.d(TAG, "isServicesOK: checking google services version");
 
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(MainLayoutPage.this);
+
+        if(available == ConnectionResult.SUCCESS)
+        {
+            //everything is fine and the user can make map requests
+            Log.d(TAG, "isServicesOK: Google Play Services is working");
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available))
+        {
+            // an error occurred but we can resolve it
+            Log.d(TAG, "isServicesOK: an error occurred");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(MainLayoutPage.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }
+        else
+        {
+            Toast.makeText(this, "You can't make a map request", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
 }

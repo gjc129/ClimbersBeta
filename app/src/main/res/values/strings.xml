@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">ClimbersBeta</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="btnComposePost">Compose Post</string>
+    <string name="tvBulletin">Bulletin Board</string>
+    <string name="tvSubject">Subject: </string>
+    <string name="etSubjectLine">Enter a subject.</string>
+    <string name="tvBody">Body: </string>
+    <string name="etBody">Enter a body for the post.</string>
+    <string name="btnCancel">Cancel</string>
+    <string name="btnPost">Post</string>
+    <string name="tvBulletinBoard">Bulletin Board</string>
+    <string name="etForumPost">Compose a post</string>
+    <string name="tvPost">Post: </string>
+    <string name="tvTitle">Forum Post Page </string>
 </resources>
