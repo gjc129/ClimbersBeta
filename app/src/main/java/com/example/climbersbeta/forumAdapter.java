@@ -1,37 +1,56 @@
 package com.example.climbersbeta;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import java.util.List;
 
-public class forumAdapter extends RecyclerView.Adapter{
+public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHolder>
+{
+    Context context;
+    List<ComposeForumPosts> composeForumList;
 
-    // method is called when the adapter is created and initializes ViewHolder(s)
+    public forumAdapter(Context context, List<ComposeForumPosts> composeForumList){
+        this.context = context;
+        this.composeForumList = composeForumList;
+    }
+
+    // inflates the row layout and initializes the view holder
+    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
-        final View view = LayoutInflater.from(parent.getContext()).inflate(viewType, parent, false);
+    public forumViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_forum, viewGroup, false);
         return new forumViewHolder(view);
     }
 
-    // method is called for each ViewHolder to bind it to the adapter.
+
+    // uses the view holder from onCreateViewHolder() method to populate
+    // the current row of the recycler view with data
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-        ((forumViewHolder) viewHolder).bindData(models.get(i));
+    public void onBindViewHolder(@NonNull forumViewHolder holder, int i) {
+        ComposeForumPosts composeForumPosts = composeForumList.get(i);
+        holder.tvForum.setText("testing");
     }
 
-    // returns sizez of collection that contains the items we want to display
     @Override
     public int getItemCount() {
-        return models.size();
+
+        return composeForumList.size();
     }
 
-    // returns the view type
-    @Override
-    public int getItemViewType(final int position){
-        return R.layout.compose_forum_post;
+    class forumViewHolder extends RecyclerView.ViewHolder {
+
+        TextView tvForum;
+
+        public forumViewHolder(View v) {
+            super(v);
+            tvForum = v.findViewById(R.id.tvForum);
+            //tvForum = v;
+        }
     }
 }

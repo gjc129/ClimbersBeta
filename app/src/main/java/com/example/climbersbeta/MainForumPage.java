@@ -14,11 +14,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class MainForumPage extends AppCompatActivity
-{
+public class MainForumPage extends AppCompatActivity {
     // View declarations
     Button btnComposePost;
     RecyclerView rvPosts;
+    List<ComposeForumPosts> composeForumList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,17 @@ public class MainForumPage extends AppCompatActivity
         btnComposePost = findViewById(R.id.btnComposeForumPost);
         rvPosts = findViewById(R.id.rvPosts);
 
+        // initializing the list
+        composeForumList = new ArrayList<>();
+
+        forumAdapter forumAdapters = new forumAdapter(this, composeForumList);
+
+        // displays the information vertically
+        rvPosts.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvPosts.setAdapter(forumAdapters);
+
+        // compose post button sends user to create post screen.
+        
         btnComposePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,43 +47,5 @@ public class MainForumPage extends AppCompatActivity
                 startActivity(sendToForumPostPage);
             }
         });
-
-        //Bundle bundle = getIntent().getExtras();
-        //String message = bundle.getString("message");
-
-        rvPosts = findViewById(R.id.rvPosts);
-
-        SimpleAdapter adapter = new SimpleAdapter(generateSimpleList());
-        rvPosts.setLayoutManager(new LinearLayoutManager(this));
-        rvPosts.setHasFixedSize(true);
-
-        rvPosts.setAdapter(adapter);
-    }
-
-    private List<SimpleViewModel> generateSimpleList(){
-         List<SimpleViewModel> simpleViewModelList = new ArrayList<>();
-
-         for(int i = 0; i < 100; i++) {
-            simpleViewModelList.add(new SimpleViewModel(String.format(Locale.US, "This is item %d", i)));
-         }
-            return simpleViewModelList;
     }
 }
-
-    // creating a class for our recycler view for forum posts
-    private class SimpleViewModel{
-        private String simplePost;
-
-        public SimpleViewModel(@NonNull final String simplePost){
-            setSimplePost(simplePost);
-        }
-
-        @NonNull
-        public String getSimplePost(){
-            return simplePost;
-        }
-
-        public void setSimplePost(@NonNull final String simplePost){
-            this.simplePost = simplePost;
-        }
-    }
