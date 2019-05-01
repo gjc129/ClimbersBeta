@@ -14,6 +14,8 @@ Running this application requires the following dependencies:
  implementation 'com.google.android.gms:play-services-location:$googlePlayVersion' 
  implementation 'com.github.bumptech.glide:glide:4.8.0'
  annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+ implementation 'org.parceler:parceler-api:1.1.12'
+ annotationProcessor 'org.parceler:parceler:1.1.12'
  
  Will also need to go to sdk manager and enable the following:  
  -google play services  
