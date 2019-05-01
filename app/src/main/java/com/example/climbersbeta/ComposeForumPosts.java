@@ -21,7 +21,7 @@ public class ComposeForumPosts extends AppCompatActivity {
 
         // Find id for all views
         etForumPost = findViewById(R.id.etForumPost);
-        etSubject = findViewById(R.id.etSubject);
+        etSubject = findViewById(R.id.etSubjectLine);
         btnBack = findViewById(R.id.btnBack);
         btnPost = findViewById(R.id.btnPost);
     }
