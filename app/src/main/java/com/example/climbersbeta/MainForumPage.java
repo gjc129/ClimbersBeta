@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +19,10 @@ public class MainForumPage extends AppCompatActivity {
     // View declarations
     Button btnComposePost;
     RecyclerView rvPosts;
+
+    // from item_forum.xml
+    TextView tvForum;
+
     List<ComposeForumPosts> composeForumList;
 
     @Override
@@ -29,6 +34,8 @@ public class MainForumPage extends AppCompatActivity {
         btnComposePost = findViewById(R.id.btnComposeForumPost);
         rvPosts = findViewById(R.id.rvPosts);
 
+        tvForum = findViewById(R.id.tvForum);
+
         // initializing the list
         composeForumList = new ArrayList<>();
 
@@ -38,8 +45,9 @@ public class MainForumPage extends AppCompatActivity {
         rvPosts.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvPosts.setAdapter(forumAdapters);
 
+        tvForum.setText(getIntent().getStringExtra("POST"));
+
         // compose post button sends user to create post screen.
-        
         btnComposePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

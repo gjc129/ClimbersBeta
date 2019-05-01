@@ -28,7 +28,6 @@ public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHol
         return new forumViewHolder(view);
     }
 
-
     // uses the view holder from onCreateViewHolder() method to populate
     // the current row of the recycler view with data
     @Override
@@ -39,7 +38,6 @@ public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHol
 
     @Override
     public int getItemCount() {
-
         return composeForumList.size();
     }
 
@@ -50,7 +48,6 @@ public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHol
         public forumViewHolder(View v) {
             super(v);
             tvForum = v.findViewById(R.id.tvForum);
-            //tvForum = v;
         }
     }
 }
