@@ -24,8 +24,7 @@ public class BrowseRoutesPage extends AppCompatActivity {
 
     RecyclerView rvRoutes;
     List<Route> routes;
-    List<Route> sportRoutes;
-    List<Route> boulderRoutes;
+
 
     //this link is relatively the area of the
     //changed maxResults value from 500 to 50 for testing
@@ -39,9 +38,9 @@ public class BrowseRoutesPage extends AppCompatActivity {
         setContentView(R.layout.browse_routes_page);
 
         rvRoutes = findViewById(R.id.rvRoutes);
-        sportRoutes = new ArrayList<>();
+        routes = new ArrayList<>();
         //currently only utilizes the sportRoutes json data, need to change when the boulderRoutes data also can get added
-        final RoutesAdapter adapter = new RoutesAdapter(this,sportRoutes);
+        final RoutesAdapter adapter = new RoutesAdapter(this,routes);
         rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRoutes.setAdapter(adapter);
 
@@ -52,13 +51,15 @@ public class BrowseRoutesPage extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
                     JSONArray routeJsonArray = response.getJSONArray("routes");
-                    sportRoutes.addAll(Route.fromJsonArray(routeJsonArray));
+                    routes.addAll(Route.fromJsonArray(routeJsonArray));
                     adapter.notifyDataSetChanged();
-                    Log.d("smile", sportRoutes.toString());
+                    //Log.d("smile", sportRoutes.toString());
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+
             }
 
             @Override
@@ -68,16 +69,16 @@ public class BrowseRoutesPage extends AppCompatActivity {
         });
 
         //need to figure out why this request doesn't work
-/*
+
         //client get function for the boulder climbing routes in the Redwood Coast area
        client.get(MP_API_URL_BOULDER, new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    JSONArray routeJsonArray = response.getJSONArray("routes");
-                    sportRoutes.addAll(Route.fromJsonArray(routeJsonArray));
+                    JSONArray routeJsonArray2 = response.getJSONArray("routes");
+                    routes.addAll(Route.fromJsonArray(routeJsonArray2));
                     adapter.notifyDataSetChanged();
-                    Log.d("smile", boulderRoutes.toString());
+                    //Log.d("smile", boulderRoutes.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -90,7 +91,7 @@ public class BrowseRoutesPage extends AppCompatActivity {
             }
         });
 
-*/
+
 
 
     }

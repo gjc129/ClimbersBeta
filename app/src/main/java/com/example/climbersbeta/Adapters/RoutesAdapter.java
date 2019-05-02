@@ -61,6 +61,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
         }
 
         public void bind(Route route) {
+
             tvRouteName.setText(route.getName());
         }
 
