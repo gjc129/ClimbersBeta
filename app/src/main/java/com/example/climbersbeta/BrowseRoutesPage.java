@@ -39,10 +39,9 @@ public class BrowseRoutesPage extends AppCompatActivity {
 
         rvRoutes = findViewById(R.id.rvRoutes);
         routes = new ArrayList<>();
-        //currently only utilizes the sportRoutes json data, need to change when the boulderRoutes data also can get added
         final RoutesAdapter adapter = new RoutesAdapter(this,routes);
-        rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        rvRoutes.setAdapter(adapter);
+        //rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        //rvRoutes.setAdapter(adapter);
 
         //client get function for the sport and traditional climbing routes in the Redwood Coast area
         AsyncHttpClient client = new AsyncHttpClient();
@@ -91,8 +90,8 @@ public class BrowseRoutesPage extends AppCompatActivity {
             }
         });
 
-
-
+        rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvRoutes.setAdapter(adapter);
 
     }
 }

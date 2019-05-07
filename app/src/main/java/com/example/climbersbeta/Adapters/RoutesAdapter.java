@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.climbersbeta.R;
@@ -22,6 +23,7 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
 
     Context context;
     List<Route> routes;
+
 
     public RoutesAdapter(Context context, List<Route> routes) {
         this.context = context;
@@ -50,34 +52,36 @@ public class RoutesAdapter extends RecyclerView.Adapter<RoutesAdapter.ViewHolder
         return routes.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView tvRouteName;
+        RelativeLayout container;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
            tvRouteName = itemView.findViewById(R.id.tvRouteName);
-           itemView.setOnClickListener(this);
+           container = itemView.findViewById(R.id.container);
+
         }
 
-        public void bind(Route route) {
+        public void bind(final Route route) {
 
             tvRouteName.setText(route.getName());
+
+            container.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+
+                        Intent sendToRouteViewIntent = new Intent(context, RouteViewPage.class);
+                        sendToRouteViewIntent.putExtra("route", Parcels.wrap(route));
+                        context.startActivity(sendToRouteViewIntent);
+
+
+                }
+            });
         }
 
-        @Override
-        public void onClick(View v) {
-            //gets the items position
-            int position = getAdapterPosition();
 
-            if(position != RecyclerView.NO_POSITION)
-            {
-                Route route = routes.get(position);
-                Intent sendToRouteViewIntent = new Intent(context, RouteViewPage.class);
-                sendToRouteViewIntent.putExtra(Route.class.getName(), Parcels.wrap(route));
-                context.startActivity(sendToRouteViewIntent);
-
-            }
-        }
     }
 }
