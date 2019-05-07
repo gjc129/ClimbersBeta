@@ -17,7 +17,7 @@ public class MainBulletinPage extends AppCompatActivity {
     Button btnComposePost;
     RecyclerView rvBulletinPosts;
 
-    List<BulletinPostPage> bulletinPostPageList;
+    List<String> bulletinPostPageList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +34,17 @@ public class MainBulletinPage extends AppCompatActivity {
 
         // displays the information vertically
         rvBulletinPosts.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        rvBulletinPosts.setAdapter(bulletinAdapter);
+
+        bulletinPostPageList.add("Hello Arcata, who likes to go climbing?");
+        bulletinPostPageList.add("I'm loving the sunset in Trinidad right now.");
+        bulletinPostPageList.add("I like having only half an app!");
+        bulletinPostPageList.add("Even though the app does not work, it is still my favorite!");
+        bulletinPostPageList.add("The weather is looking lovely in Arcata in case anyone wanted to climb.");
+        bulletinPostPageList.add("I just need something reandom to add at this point.");
+
+        bulletinPostPageList.addAll(bulletinPostPageList);
+        bulletinAdapter.notifyDataSetChanged();
         rvBulletinPosts.setAdapter(bulletinAdapter);
 
         btnComposePost.setOnClickListener(new View.OnClickListener(){

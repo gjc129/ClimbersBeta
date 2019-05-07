@@ -45,7 +45,5 @@ public class RouteViewPage extends AppCompatActivity
         ivRouteImage.setImageResource(R.drawable.tinman);
         rbRating.setRating((float) 2.3);
 
-
-
     }
 }

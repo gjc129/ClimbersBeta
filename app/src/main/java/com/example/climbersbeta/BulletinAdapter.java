@@ -13,7 +13,7 @@ import java.util.List;
 public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.BulletinViewHolder> {
 
     Context context;
-    List<BulletinPostPage> bulletinPostPageList;
+    List<String> bulletinPostPageList;
 
     // inflates the row layout and initializes the view holder
     @NonNull
@@ -27,8 +27,8 @@ public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.Bullet
     // the current row of the recycler view with data
     @Override
     public void onBindViewHolder(@NonNull BulletinAdapter.BulletinViewHolder holder, int i) {
-        BulletinPostPage bulletinPostPage = bulletinPostPageList.get(i);
-        holder.tvForum.setText("testing");
+        String bulletinPostPage = bulletinPostPageList.get(i);
+        holder.tvForum.setText(bulletinPostPage);
     }
 
     @Override
@@ -36,7 +36,7 @@ public class BulletinAdapter extends RecyclerView.Adapter<BulletinAdapter.Bullet
         return bulletinPostPageList.size();
     }
 
-    public BulletinAdapter(Context context, List<BulletinPostPage> bulletinPostPageList){
+    public BulletinAdapter(Context context, List<String> bulletinPostPageList){
         this.context = context;
         this.bulletinPostPageList = bulletinPostPageList;
     }
