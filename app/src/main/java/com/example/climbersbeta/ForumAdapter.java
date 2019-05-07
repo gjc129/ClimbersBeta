@@ -8,16 +8,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.climbersbeta.models.fPosts;
+
 import java.util.List;
 
-public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHolder>
+public class ForumAdapter extends RecyclerView.Adapter<ForumAdapter.forumViewHolder>
 {
     Context context;
-    List<ComposeForumPosts> composeForumList;
+    List<String> forumPost;
 
-    public forumAdapter(Context context, List<ComposeForumPosts> composeForumList){
+    public ForumAdapter(Context context, List<String> forumPost){
         this.context = context;
-        this.composeForumList = composeForumList;
+        this.forumPost = forumPost;
     }
 
     // inflates the row layout and initializes the view holder
@@ -32,13 +34,13 @@ public class forumAdapter extends RecyclerView.Adapter<forumAdapter.forumViewHol
     // the current row of the recycler view with data
     @Override
     public void onBindViewHolder(@NonNull forumViewHolder holder, int i) {
-        ComposeForumPosts composeForumPosts = composeForumList.get(i);
-        holder.tvForum.setText("testing");
+        String forumPosts = forumPost.get(i);
+        holder.tvForum.setText(forumPosts);
     }
 
     @Override
     public int getItemCount() {
-        return composeForumList.size();
+        return forumPost.size();
     }
 
     class forumViewHolder extends RecyclerView.ViewHolder {
