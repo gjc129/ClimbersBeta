@@ -20,4 +20,12 @@ public class BulletinPostPage extends AppCompatActivity {
 
 
     }
+
+    // setter and getter for the bulletin body
+    public TextView getEtBody(){
+        return etBody;
+    }
+    public void setEtBody(TextView body) {
+        etBody = body;
+    }
 }
