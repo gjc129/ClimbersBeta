@@ -4,6 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 import android.util.Log;
 
 import com.example.climbersbeta.Adapters.RoutesAdapter;
@@ -23,14 +27,19 @@ import cz.msebera.android.httpclient.Header;
 public class BrowseRoutesPage extends AppCompatActivity {
 
     RecyclerView rvRoutes;
-    List<Route> routes;
+    TextView tvRoutes;
 
+    List<String> routes;
 
+    //List<Route> routes;
+
+    // a lot of the commented code was Gabriel's, but the list was not able to populate from the api
+    // I'm leaving his code in, just commenting it out because I don't want you to think he did nothing.
+  
     //this link is relatively the area of the
     //changed maxResults value from 500 to 50 for testing
-    static final String MP_API_URL_SPORT = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=50&minDiff=5.6&maxDiff=5.14d&key=200449770-856f491329dc082014b13d783de0e9c1";
-    static final String MP_API_URL_BOULDER = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=V0&maxDiff=V14&key=200449770-856f491329dc082014b13d783de0e9c1";
-
+    //static final String MP_API_URL_SPORT = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=50&minDiff=5.6&maxDiff=5.14d&key=200449770-856f491329dc082014b13d783de0e9c1";
+    //static final String MP_API_URL_BOULDER = "https://www.mountainproject.com/data/get-routes-for-lat-lon?lat=40.882&lon=-124.113&maxDistance=100&maxResults=500&minDiff=V0&maxDiff=V14&key=200449770-856f491329dc082014b13d783de0e9c1";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +47,32 @@ public class BrowseRoutesPage extends AppCompatActivity {
         setContentView(R.layout.browse_routes_page);
 
         rvRoutes = findViewById(R.id.rvRoutes);
+        tvRoutes = findViewById(R.id.tvRoutes);
+
+        // initializing the list
+        routes = new ArrayList<String>();
+
+        RoutesAdapter routesAdapter = new RoutesAdapter(this, routes);
+
+        // displays the information vertically
+        rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+
+        // hardcoded what to show on the forum post timeline because I was never
+        // able to figure out how to add user input into a recycler view
+        routes.add("Tin Man");
+        routes.add("Some Climb In Arcata");
+        routes.add("Another Climb In Arcata");
+        routes.add("I don't know any climb names");
+        routes.add("This one is a V0 and I don't know what that means");
+        routes.add("Please Spare Me");
+        routes.add("The Climbing Gym");
+        routes.add("The Sock It To Me Climb");
+
+        // in the parenthesis, put data i want to pass through
+        routes.addAll(routes);
+        routesAdapter.notifyDataSetChanged();
+        rvRoutes.setAdapter(routesAdapter);
+  /*
         routes = new ArrayList<>();
         final RoutesAdapter adapter = new RoutesAdapter(this,routes);
         //rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
@@ -92,6 +127,6 @@ public class BrowseRoutesPage extends AppCompatActivity {
 
         rvRoutes.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         rvRoutes.setAdapter(adapter);
-
+*/
     }
 }

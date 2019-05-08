@@ -39,12 +39,15 @@ public class MainForumPage extends ComposeForumPosts {
         // displays the information vertically
         rvPosts.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
+        // hardcoded what to show on the forum post timeline because I was never
+        // able to figure out how to add user input into a recycler view
         forumPosts.add("That climb I did the other day was killer. I can't feel my forearms!");
         forumPosts.add("I am hungry for more climbing after the last day. Who wants to join?");
         forumPosts.add("I'm doing very good now, sock it to me!");
         forumPosts.add("Good job Climbers Beta, you're doing good!");
         forumPosts.add("I didn't know  the meaning of life until I started using this app, wow!");
         forumPosts.add("Marco is so cool and handsome.");
+
         // in the parenthesis, put data i want to pass through
         forumPosts.addAll(forumPosts);
         forumAdapters.notifyDataSetChanged();
