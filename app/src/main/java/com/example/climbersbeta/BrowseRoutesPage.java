@@ -1,9 +1,12 @@
 package com.example.climbersbeta;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +16,7 @@ public class BrowseRoutesPage extends AppCompatActivity {
 
     RecyclerView rvRoutes;
     TextView tvRoutes;
+    Button btnRouteView;
 
     List<String> routes;
 
@@ -23,6 +27,7 @@ public class BrowseRoutesPage extends AppCompatActivity {
 
         rvRoutes = findViewById(R.id.rvRoutes);
         tvRoutes = findViewById(R.id.tvRoutes);
+        btnRouteView = findViewById(R.id.btnRouteView);
 
         // initializing the list
         routes = new ArrayList<String>();
@@ -47,5 +52,13 @@ public class BrowseRoutesPage extends AppCompatActivity {
         routes.addAll(routes);
         routesAdapter.notifyDataSetChanged();
         rvRoutes.setAdapter(routesAdapter);
+
+        btnRouteView.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                Intent routeView = new Intent(BrowseRoutesPage.this, RouteViewPage.class);
+                startActivity(routeView);
+            }
+        });
     }
 }
