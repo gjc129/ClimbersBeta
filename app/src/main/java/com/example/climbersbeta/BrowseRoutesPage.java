@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 public class BrowseRoutesPage extends AppCompatActivity {
 
     RecyclerView rvRoutes;
+    TextView tvRoutes;
 
     List<String> routes;
 
@@ -20,6 +22,7 @@ public class BrowseRoutesPage extends AppCompatActivity {
         setContentView(R.layout.browse_routes_page);
 
         rvRoutes = findViewById(R.id.rvRoutes);
+        tvRoutes = findViewById(R.id.tvRoutes);
 
         // initializing the list
         routes = new ArrayList<String>();
